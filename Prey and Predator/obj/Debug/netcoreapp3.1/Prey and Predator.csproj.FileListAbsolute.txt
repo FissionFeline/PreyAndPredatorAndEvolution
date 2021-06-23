@@ -1,0 +1,13 @@
+C:\Users\Ringtail the racoon\source\repos\Prey and Predator\Prey and Predator\bin\Debug\netcoreapp3.1\Prey and Predator.exe
+C:\Users\Ringtail the racoon\source\repos\Prey and Predator\Prey and Predator\bin\Debug\netcoreapp3.1\Prey and Predator.deps.json
+C:\Users\Ringtail the racoon\source\repos\Prey and Predator\Prey and Predator\bin\Debug\netcoreapp3.1\Prey and Predator.runtimeconfig.json
+C:\Users\Ringtail the racoon\source\repos\Prey and Predator\Prey and Predator\bin\Debug\netcoreapp3.1\Prey and Predator.runtimeconfig.dev.json
+C:\Users\Ringtail the racoon\source\repos\Prey and Predator\Prey and Predator\bin\Debug\netcoreapp3.1\Prey and Predator.dll
+C:\Users\Ringtail the racoon\source\repos\Prey and Predator\Prey and Predator\bin\Debug\netcoreapp3.1\Prey and Predator.pdb
+C:\Users\Ringtail the racoon\source\repos\Prey and Predator\Prey and Predator\obj\Debug\netcoreapp3.1\Prey and Predator.csprojAssemblyReference.cache
+C:\Users\Ringtail the racoon\source\repos\Prey and Predator\Prey and Predator\obj\Debug\netcoreapp3.1\Prey and Predator.AssemblyInfoInputs.cache
+C:\Users\Ringtail the racoon\source\repos\Prey and Predator\Prey and Predator\obj\Debug\netcoreapp3.1\Prey and Predator.AssemblyInfo.cs
+C:\Users\Ringtail the racoon\source\repos\Prey and Predator\Prey and Predator\obj\Debug\netcoreapp3.1\Prey and Predator.csproj.CoreCompileInputs.cache
+C:\Users\Ringtail the racoon\source\repos\Prey and Predator\Prey and Predator\obj\Debug\netcoreapp3.1\Prey and Predator.dll
+C:\Users\Ringtail the racoon\source\repos\Prey and Predator\Prey and Predator\obj\Debug\netcoreapp3.1\Prey and Predator.pdb
+C:\Users\Ringtail the racoon\source\repos\Prey and Predator\Prey and Predator\obj\Debug\netcoreapp3.1\Prey and Predator.genruntimeconfig.cache
