@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Ringtail the racoon\\source\\repos\\Prey and Predator\\Prey and Predator\\Prey and Predator.csproj": {}
+    "C:\\Users\\Ringtail the racoon\\Desktop\\Github\\PreyAndPredator\\Prey and Predator\\Prey and Predator.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Ringtail the racoon\\source\\repos\\Prey and Predator\\Prey and Predator\\Prey and Predator.csproj": {
+    "C:\\Users\\Ringtail the racoon\\Desktop\\Github\\PreyAndPredator\\Prey and Predator\\Prey and Predator.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Ringtail the racoon\\source\\repos\\Prey and Predator\\Prey and Predator\\Prey and Predator.csproj",
+        "projectUniqueName": "C:\\Users\\Ringtail the racoon\\Desktop\\Github\\PreyAndPredator\\Prey and Predator\\Prey and Predator.csproj",
         "projectName": "Prey and Predator",
-        "projectPath": "C:\\Users\\Ringtail the racoon\\source\\repos\\Prey and Predator\\Prey and Predator\\Prey and Predator.csproj",
+        "projectPath": "C:\\Users\\Ringtail the racoon\\Desktop\\Github\\PreyAndPredator\\Prey and Predator\\Prey and Predator.csproj",
         "packagesPath": "C:\\Users\\Ringtail the racoon\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Ringtail the racoon\\source\\repos\\Prey and Predator\\Prey and Predator\\obj\\",
+        "outputPath": "C:\\Users\\Ringtail the racoon\\Desktop\\Github\\PreyAndPredator\\Prey and Predator\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
