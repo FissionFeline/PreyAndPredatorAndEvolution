@@ -5,6 +5,7 @@ namespace Prey_and_Predator
 {
     class Program
     {
+        //this here is an input validator for 32 bit int 
         public static int int_loop(string message = "Input sth")
         {
             int var = 0;
@@ -23,6 +24,7 @@ namespace Prey_and_Predator
             }
             return var;
         }
+        //Main class used to store data 
         class Animal
         {
             public readonly string Type;
@@ -44,11 +46,14 @@ namespace Prey_and_Predator
             }
             
         }
+        //Object creation for later usage
         private static Random rnd = new Random();
+        //chooses random array content
         public static string RandomArrayElement(string[] ArrayToChoose)
         {
             return ArrayToChoose[rnd.Next(ArrayToChoose.Length)];
         }
+        //Generates Random boolean 
         public static bool GenerateRandombool(int precentage)
         {
             var rand = new Random();
@@ -60,10 +65,11 @@ namespace Prey_and_Predator
             return false;
         }
         private static string[] possibleGenders = { "Male", "Female" };
-        private static int DeathsPrey;
+        private static int DeathsPrey;//Record Variables
         private static int DeathsPred;
         static void Main(string[] args)
         {
+            //septup start
             Console.WriteLine("Welcome");
             int killme = int_loop("Enter the amount of days to simulate");
             List<Animal> Prey = new List<Animal>();
@@ -71,6 +77,7 @@ namespace Prey_and_Predator
             int PreyCreationInt = int_loop("Enter the amount of prey");
             int FoodAviablableEachDay = int_loop("How much food can the pray locate ?");
             int PredatorCreationInt = int_loop("Enter the amount of predators");
+            //creates Prey and Predators init
             for (int i = 0; i < PreyCreationInt; i++)
             {
                 Prey.Add(new Animal("Prey", RandomArrayElement(possibleGenders),rnd.Next(2), 5,rnd.Next(10)));
@@ -79,12 +86,14 @@ namespace Prey_and_Predator
             {
                 Predator.Add(new Animal("Predator", RandomArrayElement(possibleGenders),rnd.Next(2), 5,rnd.Next(10)));
             }
+            //setup complete
+            //Start simulation
             for (int i = 0; i != killme; i++)
             {
                 Console.WriteLine("-----Day "+i+"-----");
                 foreach(var ii in Prey)
                 {
-                    if(ii.GeneticSequenze == 1)
+                    if(ii.GeneticSequenze == 1)//basic prototype of Bavior based on genetic code
                     {
                         FoodAviablableEachDay = FoodAviablableEachDay - 2;
                         ii.SetBodyFat(2);
