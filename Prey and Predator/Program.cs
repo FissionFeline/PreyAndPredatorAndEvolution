@@ -42,7 +42,7 @@ namespace Prey_and_Predator
             }
             public void SetBodyFat(int NewBodyFat)
             {
-                BodyFat += NewBodyFat;
+                BodyFat = NewBodyFat;
             }
             
         }
@@ -93,26 +93,23 @@ namespace Prey_and_Predator
                 Console.WriteLine("-----Day "+i+"-----");
                 foreach(var ii in Prey)
                 {
-                    if(ii.GeneticSequenze == 1)//basic prototype of Bavior based on genetic code
+                    if(ii.GeneticSequenze == 1 && FoodAviablableEachDay <= 2)//basic prototype of Bavior based on genetic code
                     {
                         FoodAviablableEachDay = FoodAviablableEachDay - 2;
-                        ii.SetBodyFat(2);
+                        ii.SetBodyFat(ii.BodyFat + 2);
                     }
-                    if(ii.GeneticSequenze == 2)
+                    if(ii.GeneticSequenze == 2 && FoodAviablableEachDay <= 1)
                     {
                         FoodAviablableEachDay = FoodAviablableEachDay - 1;
-                        ii.SetBodyFat(1);
+                        ii.SetBodyFat(ii.BodyFat + 1);
                     }
 
-                    Console.WriteLine(ii.BodyFatRequiredForBreeding);
-                }
-                foreach(var ii in Predator)
-                {
-                    Console.WriteLine(ii.Gender);
+                    Console.WriteLine(ii.GeneticSequenze + "///" );
                 }
                 // Body fat check and also remove body fat required for living
                 foreach(var PreyToCheck in Prey)
                 {
+                    Console.WriteLine("####Prey" + PreyToCheck.BodyFat);
                     PreyToCheck.SetBodyFat(PreyToCheck.BodyFat - 1);
                     if(PreyToCheck.BodyFat <= 0)
                     {
@@ -122,8 +119,9 @@ namespace Prey_and_Predator
                         DeathsPrey++;
                     }
                 }
-                foreach (var PredToCheck in Predator)
+                /*foreach (var PredToCheck in Predator)
                 {
+                    Console.WriteLine("####Pred" + PredToCheck.BodyFat);
                     PredToCheck.SetBodyFat(PredToCheck.BodyFat - 1);
                     if (PredToCheck.BodyFat <= 0)
                     {
@@ -133,7 +131,7 @@ namespace Prey_and_Predator
                         DeathsPred++;
                     }
                 }
-                Console.WriteLine(DeathsPred +"-"+DeathsPrey);
+                Console.WriteLine(DeathsPred +"-"+DeathsPrey);*/
             }
         }
     }
