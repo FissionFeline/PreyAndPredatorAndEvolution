@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Prey_and_Predator
 {
@@ -93,12 +94,12 @@ namespace Prey_and_Predator
                 Console.WriteLine("-----Day "+i+"-----");
                 foreach(var ii in Prey)
                 {
-                    if(ii.GeneticSequenze == 1 && FoodAviablableEachDay <= 2)//basic prototype of Bavior based on genetic code
+                    if(ii.GeneticSequenze == 1 && FoodAviablableEachDay >= 2)//basic prototype of Bavior based on genetic code
                     {
                         FoodAviablableEachDay = FoodAviablableEachDay - 2;
                         ii.SetBodyFat(ii.BodyFat + 2);
                     }
-                    if(ii.GeneticSequenze == 2 && FoodAviablableEachDay <= 1)
+                    if(ii.GeneticSequenze == 0 && FoodAviablableEachDay >= 1)
                     {
                         FoodAviablableEachDay = FoodAviablableEachDay - 1;
                         ii.SetBodyFat(ii.BodyFat + 1);
@@ -106,8 +107,9 @@ namespace Prey_and_Predator
 
                     Console.WriteLine(ii.GeneticSequenze + "///" );
                 }
+                Console.WriteLine("====="+FoodAviablableEachDay);
                 // Body fat check and also remove body fat required for living
-                foreach(var PreyToCheck in Prey)
+                foreach(var PreyToCheck in Prey.ToList())//The to list thing has to be here or else the code will throw a runtime error do not remove it or else I will murder I dont know why that happens but it happens
                 {
                     Console.WriteLine("####Prey" + PreyToCheck.BodyFat);
                     PreyToCheck.SetBodyFat(PreyToCheck.BodyFat - 1);
@@ -119,19 +121,18 @@ namespace Prey_and_Predator
                         DeathsPrey++;
                     }
                 }
-                /*foreach (var PredToCheck in Predator)
+                foreach(var PredToCheck in Predator.ToList())
                 {
-                    Console.WriteLine("####Pred" + PredToCheck.BodyFat);
+                    Console.WriteLine("####Prey" + PredToCheck.BodyFat);
                     PredToCheck.SetBodyFat(PredToCheck.BodyFat - 1);
                     if (PredToCheck.BodyFat <= 0)
                     {
-                        Console.WriteLine("##"+PredToCheck.BodyFat);
+                        Console.WriteLine("##" + PredToCheck.BodyFat);
                         Prey.Remove(PredToCheck);
-                        Console.WriteLine("pred died");
-                        DeathsPred++;
+                        Console.WriteLine("prey died");
+                        DeathsPrey++;
                     }
                 }
-                Console.WriteLine(DeathsPred +"-"+DeathsPrey);*/
             }
         }
     }
