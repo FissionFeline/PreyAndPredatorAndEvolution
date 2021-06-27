@@ -121,7 +121,7 @@ namespace Prey_and_Predator
                         DeathsPrey++;
                     }
                 }
-                foreach(var PredToCheck in Predator.ToList())
+                foreach(var PredToCheck in Predator.ToList())//ToList is important and cant be left out
                 {
                     Console.WriteLine("####Prey" + PredToCheck.BodyFat);
                     PredToCheck.SetBodyFat(PredToCheck.BodyFat - 1);
@@ -130,7 +130,7 @@ namespace Prey_and_Predator
                         Console.WriteLine("##" + PredToCheck.BodyFat);
                         Prey.Remove(PredToCheck);
                         Console.WriteLine("prey died");
-                        DeathsPrey++;
+                        DeathsPrey++;//make this shit work 
                     }
                 }
             }
