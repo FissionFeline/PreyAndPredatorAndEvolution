@@ -130,10 +130,14 @@ namespace Prey_and_Predator
                         Console.WriteLine("##" + PredToCheck.BodyFat);
                         Prey.Remove(PredToCheck);
                         Console.WriteLine("prey died");
-                        DeathsPrey++;//make this shit work 
+                        DeathsPred++;//make this shit work 
                     }
                 }
             }
+            Console.WriteLine("---------------------------------");
+            Console.WriteLine(DeathsPred+" Predators have died");
+            Console.WriteLine(DeathsPrey + " Preys have died");
+            Console.WriteLine("---------------------------------");
         }
     }
 }
