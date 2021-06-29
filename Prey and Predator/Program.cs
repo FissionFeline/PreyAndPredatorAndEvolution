@@ -117,6 +117,7 @@ namespace Prey_and_Predator
                         DeathsPred++;
                         continue;
                     }
+                    int[] PossibleVic = { rnd.Next(Prey.Count), rnd.Next(Prey.Count) };
                     foreach (int PossiblePreyToBeEaten in PossibleVic)
                     {
                         if(GenerateRandombool(25))
