@@ -30,6 +30,7 @@ namespace Prey_and_Predator
         {
             public readonly string Type;
             public readonly int GeneticSequenze;
+            public int Age = 0;
             public readonly string Gender;
             public readonly int BodyFatRequiredForBreeding;
             public int BodyFat;
@@ -76,8 +77,9 @@ namespace Prey_and_Predator
             List<Animal> Prey = new List<Animal>();
             List<Animal> Predator = new List<Animal>();
             int PreyCreationInt = int_loop("Enter the amount of prey");
-            int FoodAviablableEachDay = int_loop("How much food can the pray locate ?");
+            int FoodAviablableEachDayCInt = int_loop("How much food can the pray locate ?");
             int PredatorCreationInt = int_loop("Enter the amount of predators");
+            int MaxAgeForBothPreyAndPred = int_loop("Enter the max age that something can achieve before dying");
             //creates Prey and Predators init
             for (int i = 0; i < PreyCreationInt; i++)
             {
@@ -91,6 +93,7 @@ namespace Prey_and_Predator
             //Start simulation
             for (int i = 0; i != killme; i++)
             {
+                int FoodAviablableEachDay = FoodAviablableEachDayCInt;
                 Console.WriteLine("-----Day "+i+"-----");
                 foreach(var ii in Prey)
                 {
@@ -103,40 +106,45 @@ namespace Prey_and_Predator
                     {
                         FoodAviablableEachDay = FoodAviablableEachDay - 1;
                         ii.SetBodyFat(ii.BodyFat + 1);
-                    }
-
-                    Console.WriteLine(ii.GeneticSequenze + "///" );
+                    } 
                 }
-                Console.WriteLine("====="+FoodAviablableEachDay);
                 // Body fat check and also remove body fat required for living
                 foreach(var PreyToCheck in Prey.ToList())//The to list thing has to be here or else the code will throw a runtime error do not remove it or else I will murder I dont know why that happens but it happens
                 {
-                    Console.WriteLine("####Prey" + PreyToCheck.BodyFat);
                     PreyToCheck.SetBodyFat(PreyToCheck.BodyFat - 1);
-                    if(PreyToCheck.BodyFat <= 0)
+                    if(PreyToCheck.BodyFat <= 0 || PreyToCheck.Age > MaxAgeForBothPreyAndPred)
                     {
                         Console.WriteLine("##"+PreyToCheck.BodyFat);
                         Prey.Remove(PreyToCheck);
                         Console.WriteLine("prey died");
                         DeathsPrey++;
                     }
+                    else
+                    {
+                        PreyToCheck.Age++;
+                    }
                 }
                 foreach(var PredToCheck in Predator.ToList())//ToList is important and cant be left out
                 {
-                    Console.WriteLine("####Prey" + PredToCheck.BodyFat);
                     PredToCheck.SetBodyFat(PredToCheck.BodyFat - 1);
-                    if (PredToCheck.BodyFat <= 0)
+                    if (PredToCheck.BodyFat <= 0 || PredToCheck.Age > MaxAgeForBothPreyAndPred)
                     {
                         Console.WriteLine("##" + PredToCheck.BodyFat);
                         Prey.Remove(PredToCheck);
-                        Console.WriteLine("prey died");
+                        Console.WriteLine("pred died");
                         DeathsPred++;//make this shit work 
+                    }
+                    else
+                    {
+                        PredToCheck.Age++;
                     }
                 }
             }
             Console.WriteLine("---------------------------------");
             Console.WriteLine(DeathsPred+" Predators have died");
             Console.WriteLine(DeathsPrey + " Preys have died");
+            Console.WriteLine(Predator.Count + " predators are still alive");
+            Console.WriteLine(Prey.Count + " prey's are still alive");
             Console.WriteLine("---------------------------------");
         }
     }
