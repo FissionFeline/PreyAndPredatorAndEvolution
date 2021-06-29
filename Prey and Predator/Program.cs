@@ -60,7 +60,7 @@ namespace Prey_and_Predator
         {
             var rand = new Random();
 
-            if (rand.Next(1000) < precentage * 10)
+            if (rand.Next(100) < precentage)
             {
                 return true;
             }
@@ -108,13 +108,39 @@ namespace Prey_and_Predator
                         ii.SetBodyFat(ii.BodyFat + 1);
                     } 
                 }
+                foreach(var PredToEat in Predator.ToList())
+                {
+                    if (GenerateRandombool(5))
+                    {
+                        Console.WriteLine("Predator has died during the hunt");
+                        Predator.Remove(PredToEat);
+                        DeathsPred++;
+                        continue;
+                    }
+                    foreach (int PossiblePreyToBeEaten in PossibleVic)
+                    {
+                        if(GenerateRandombool(25))
+                        {
+                            Console.WriteLine("Pred has found some food");
+                            try
+                            {
+                                var PreyToBeEaten = Prey[PossiblePreyToBeEaten];
+                                PredToEat.SetBodyFat(PredToEat.BodyFat + PreyToBeEaten.BodyFat);
+                                Prey.RemoveAt(PossiblePreyToBeEaten);
+                                DeathsPrey++;
+                            }
+                            catch
+                            {//yeah this may be bAd PrAcTiSE but i dont really care
+                            }
+                        }
+                    }                    
+                }
                 // Body fat check and also remove body fat required for living
                 foreach(var PreyToCheck in Prey.ToList())//The to list thing has to be here or else the code will throw a runtime error do not remove it or else I will murder I dont know why that happens but it happens
                 {
                     PreyToCheck.SetBodyFat(PreyToCheck.BodyFat - 1);
                     if(PreyToCheck.BodyFat <= 0 || PreyToCheck.Age > MaxAgeForBothPreyAndPred)
                     {
-                        Console.WriteLine("##"+PreyToCheck.BodyFat);
                         Prey.Remove(PreyToCheck);
                         Console.WriteLine("prey died");
                         DeathsPrey++;
@@ -129,15 +155,19 @@ namespace Prey_and_Predator
                     PredToCheck.SetBodyFat(PredToCheck.BodyFat - 1);
                     if (PredToCheck.BodyFat <= 0 || PredToCheck.Age > MaxAgeForBothPreyAndPred)
                     {
-                        Console.WriteLine("##" + PredToCheck.BodyFat);
-                        Prey.Remove(PredToCheck);
+                        Predator.Remove(PredToCheck);
                         Console.WriteLine("pred died");
-                        DeathsPred++;//make this shit work 
+                        DeathsPred++;
                     }
                     else
                     {
                         PredToCheck.Age++;
                     }
+                }
+                // reproduction of preds and prey
+                foreach(var PredToRep in Predator)
+                {
+                    Console.WriteLine("here work on this fat shit");
                 }
             }
             Console.WriteLine("---------------------------------");
