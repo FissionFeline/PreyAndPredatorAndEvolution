@@ -83,11 +83,11 @@ namespace Prey_and_Predator
             //creates Prey and Predators init
             for (int i = 0; i < PreyCreationInt; i++)
             {
-                Prey.Add(new Animal("Prey", RandomArrayElement(possibleGenders),rnd.Next(2), 5,rnd.Next(10)));
+                Prey.Add(new Animal("Prey", RandomArrayElement(possibleGenders),rnd.Next(2), 5,rnd.Next(3)));
             }
             for (int i = 0; i < PredatorCreationInt;i++)
             {
-                Predator.Add(new Animal("Predator", RandomArrayElement(possibleGenders),rnd.Next(2), 5,rnd.Next(10)));
+                Predator.Add(new Animal("Predator", RandomArrayElement(possibleGenders),rnd.Next(2), 5,rnd.Next(3)));
             }
             //setup complete
             //Start simulation
@@ -120,7 +120,7 @@ namespace Prey_and_Predator
                     int[] PossibleVic = { rnd.Next(Prey.Count), rnd.Next(Prey.Count) };
                     foreach (int PossiblePreyToBeEaten in PossibleVic)
                     {
-                        if(GenerateRandombool(25))
+                        if(GenerateRandombool(PredToEat.GeneticSequenze * 25))
                         {
                             Console.WriteLine("Pred has found some food");
                             try
@@ -151,7 +151,7 @@ namespace Prey_and_Predator
                         PreyToCheck.Age++;
                     }
                 }
-                foreach(var PredToCheck in Predator.ToList())//ToList is important and cant be left out
+                foreach(var PredToCheck in Predator.ToList())//ToList is important and cant be left out it cant 
                 {
                     PredToCheck.SetBodyFat(PredToCheck.BodyFat - 1);
                     if (PredToCheck.BodyFat <= 0 || PredToCheck.Age > MaxAgeForBothPreyAndPred)
@@ -166,10 +166,52 @@ namespace Prey_and_Predator
                     }
                 }
                 // reproduction of preds and prey
-                foreach(var PredToRep in Predator)
+                if (Predator.Count == 0 || Predator.Count == 1)
                 {
-                    Console.WriteLine("here work on this fat shit");
+                    List<Animal> PredM = new List<Animal>();
+                    List<Animal> PredF = new List<Animal>();
+                    foreach (var PredToRep in Predator)
+                    {
+                        if(PredToRep.Gender == "Female" && PredToRep.BodyFat >= PredToRep.BodyFatRequiredForBreeding)
+                        {
+                            PredF.Add(PredToRep);
+                        }else if(PredToRep.Gender == "Male" && PredToRep.BodyFat >= PredToRep.BodyFatRequiredForBreeding)
+                        {
+                            PredM.Add(PredToRep);
+                        }
+                    }
+                    foreach (var PredToRep in PredF)
+                    {
+                        if (PredM.Count > 0)
+                        {
+                            Prey.Add(new Animal("Predator", RandomArrayElement(possibleGenders), PredToRep.GeneticSequenze, 5, rnd.Next(3)));
+                        }
+                    }
                 }
+                if (Prey.Count == 0 || Prey.Count == 1)
+                {
+                    List<Animal> PreyM = new List<Animal>();
+                    List<Animal> PreyF = new List<Animal>();
+                    foreach (var PreyToRep in Prey)
+                    {
+                        if (PreyToRep.Gender == "Female" && PreyToRep.BodyFat >= PreyToRep.BodyFatRequiredForBreeding)
+                        {
+                            PreyF.Add(PreyToRep);
+                        }
+                        else if(PreyToRep.Gender == "Female" && PreyToRep.BodyFat >= PreyToRep.BodyFatRequiredForBreeding)
+                        {
+                            PreyM.Add(PreyToRep);
+                        }
+                    }
+                    foreach (var PreyToRep in PreyF)
+                    {
+                        if (PreyM.Count > 0)
+                        {
+                            Prey.Add(new Animal("Prey", RandomArrayElement(possibleGenders), PreyToRep.GeneticSequenze, 5, rnd.Next(3)));
+                        }
+                    }
+                }
+               
             }
             Console.WriteLine("---------------------------------");
             Console.WriteLine(DeathsPred+" Predators have died");
