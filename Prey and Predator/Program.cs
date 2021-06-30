@@ -211,7 +211,6 @@ namespace Prey_and_Predator
                         }
                     }
                 }
-               
             }
             Console.WriteLine("---------------------------------");
             Console.WriteLine(DeathsPred+" Predators have died");
