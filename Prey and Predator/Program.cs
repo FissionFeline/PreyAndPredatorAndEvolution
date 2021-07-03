@@ -37,14 +37,14 @@ namespace Prey_and_Predator
             public Animal(string SetType, string SetGender,int SetGeneticSequenze,int defaultBirthbodyFat,int SetBodyFatRequiredForBreeding)
             {
                 Gender = SetGender;
-                GeneticSequenze = SetGeneticSequenze;
-                BodyFat = defaultBirthbodyFat;
-                Type = SetType;
+                GeneticSequenze = SetGeneticSequenze; // genetic sequenzes dictate the hunting / breeding behavour
+                BodyFat = defaultBirthbodyFat; 
+                Type = SetType; // prey or predator 
                 BodyFatRequiredForBreeding = SetBodyFatRequiredForBreeding;
             }
             public void SetBodyFat(int NewBodyFat)
             {
-                BodyFat = NewBodyFat;
+                BodyFat = NewBodyFat; // sets body fat 
             }
             
         }
@@ -74,7 +74,7 @@ namespace Prey_and_Predator
             //septup start
             Console.WriteLine("Welcome");
             int killme = int_loop("Enter the amount of days to simulate");
-            List<Animal> Prey = new List<Animal>();
+            List<Animal> Prey = new List<Animal>(); // these are used to store the classes
             List<Animal> Predator = new List<Animal>();
             int PreyCreationInt = int_loop("Enter the amount of prey");
             int FoodAviablableEachDayCInt = int_loop("How much food can the pray locate ?");
