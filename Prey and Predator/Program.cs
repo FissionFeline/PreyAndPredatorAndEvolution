@@ -58,9 +58,7 @@ namespace Prey_and_Predator
         //Generates Random boolean 
         public static bool GenerateRandombool(int precentage)
         {
-            var rand = new Random();
-
-            if (rand.Next(100) < precentage)
+            if (rnd.Next(100) < precentage)
             {
                 return true;
             }
@@ -166,7 +164,7 @@ namespace Prey_and_Predator
                     }
                 }
                 // reproduction of preds and prey
-                if (Predator.Count == 0 || Predator.Count == 1)
+                if (Predator.Count < 2)
                 {
                     List<Animal> PredM = new List<Animal>();
                     List<Animal> PredF = new List<Animal>();
